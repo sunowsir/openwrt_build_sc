@@ -41,11 +41,11 @@ cp "${WORK_DIR}/openwrt_build_config/config.buildinfo" "${BUILD_DIR}/.config" ||
 
 make defconfig || exit 
 
-make -j12 download || exit 
+make -j12 download || make -j12 download PKG_HASH=skip || exit
 
 make -j12 prepare  || exit 
 
-make -j12 PKG_HASH=skip || exit 
+make -j12 || make -j12 PKG_HASH=skip || exit 
 
 set +x 
 
