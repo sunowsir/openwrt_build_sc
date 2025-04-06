@@ -19,8 +19,8 @@ if [[ ! -d ${WORK_DIR}/feeds.conf.default ]]; then
     git clone https://github.com/sunowsir/feeds.conf.default.git || exit 
 fi
 
-if [[ ! -d ${WORK_DIR}/openwrt_qcow2_build_support ]]; then
-    git clone https://github.com/sunowsir/openwrt_qcow2_build_support.git || exit 
+if [[ ! -d ${WORK_DIR}/openwrt_patch ]]; then
+    git clone https://github.com/sunowsir/openwrt_patch.git || exit 
 fi
 
 if [[ ! -d ${BUILD_DIR} ]]; then
