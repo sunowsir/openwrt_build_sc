@@ -43,9 +43,9 @@ else
     cd "${WORK_DIR}" || exit
 fi
 
-cp "${WORK_DIR}/feeds.conf.default/feeds.conf.default" "${BUILD_DIR}/" || exit
+cp "${WORK_DIR}"/feeds.conf.default/feeds.conf.default "${BUILD_DIR}/" || exit
 
-cp -r "${WORK_DIR}/openwrt_patch/patch/*" "${BUILD_DIR}/" || exit
+cp -r "${WORK_DIR}"/openwrt_patch/patch/* "${BUILD_DIR}/" || exit
 
 cd "${BUILD_DIR}" || exit
 
@@ -53,7 +53,7 @@ cd "${BUILD_DIR}" || exit
 ./scripts/feeds update -a && ./scripts/feeds install -a
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-cp "${WORK_DIR}/openwrt_build_config/config.buildinfo" "${BUILD_DIR}/.config" || exit
+cp "${WORK_DIR}"/openwrt_build_config/config.buildinfo "${BUILD_DIR}/.config" || exit
 
 make defconfig || exit 
 
