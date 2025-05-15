@@ -11,14 +11,6 @@ set -x
 WORK_DIR="$(dirname "$(readlink -f "${0}")")"
 BUILD_DIR="${WORK_DIR}/openwrt"
 
-if [[ ! -d ${WORK_DIR}/feeds.conf.default ]]; then
-    git clone https://github.com/sunowsir/feeds.conf.default.git || exit 
-else 
-    cd "${WORK_DIR}/feeds.conf.default" || exit
-    git pull || exit
-    cd "${WORK_DIR}" || exit
-fi
-
 if [[ ! -d ${WORK_DIR}/openwrt_patch ]]; then
     git clone https://github.com/sunowsir/openwrt_patch.git || exit 
 else 
@@ -34,8 +26,6 @@ else
     git pull  || exit
     cd "${WORK_DIR}" || exit
 fi
-
-cp "${WORK_DIR}"/feeds.conf.default/feeds.conf.default "${BUILD_DIR}/" || exit
 
 cp -r "${WORK_DIR}"/openwrt_patch/patch/* "${BUILD_DIR}/" || exit
 
