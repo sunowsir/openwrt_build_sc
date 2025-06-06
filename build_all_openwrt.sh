@@ -27,7 +27,9 @@ else
     cd "${WORK_DIR}" || exit
 fi
 
-cp -r "${WORK_DIR}"/openwrt_patch/patch/* "${BUILD_DIR}/" || exit
+cp "${WORK_DIR}"/openwrt_patch/patch/feeds.conf.default "${BUILD_DIR}/" || exit
+
+sed -i  's/\/bin\/ash/\/usr\/bin\/fish/g' ${BUILD_DIR}/feeds/base/base-files/files/etc/passwd
 
 cd "${BUILD_DIR}" || exit
 
@@ -35,7 +37,7 @@ cd "${BUILD_DIR}" || exit
 ./scripts/feeds update -a && ./scripts/feeds install -a
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-cp "${WORK_DIR}"/openwrt_patch/patch/.config "${BUILD_DIR}/.config" || exit
+cp -r "${WORK_DIR}"/openwrt_patch/patch/* "${BUILD_DIR}/" || exit
 
 make defconfig || exit 
 
