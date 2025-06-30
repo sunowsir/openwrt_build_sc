@@ -40,6 +40,13 @@ cd "${BUILD_DIR}" || exit
 cp -r "${WORK_DIR}"/openwrt_patch/patch/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/* \
     "${BUILD_DIR}/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/" || exit
 
+cp -r "${WORK_DIR}"/openwrt_patch/patch/config/* \
+    "${BUILD_DIR}/openwrt_patch/patch/config/" || exit
+
+
+cp -r "${WORK_DIR}"/openwrt_patch/patch/target/linux/x86/image/* \
+    "${BUILD_DIR}/openwrt_patch/patch/target/linux/x86/image/" || exit
+
 
 make defconfig || exit 
 
