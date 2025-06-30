@@ -37,7 +37,9 @@ cd "${BUILD_DIR}" || exit
 ./scripts/feeds update -a && ./scripts/feeds install -a
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-cp -r "${WORK_DIR}"/openwrt_patch/patch/* "${BUILD_DIR}/" || exit
+cp -r "${WORK_DIR}"/openwrt_patch/patch/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/* \
+    "${BUILD_DIR}/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/" || exit
+
 
 make defconfig || exit 
 
